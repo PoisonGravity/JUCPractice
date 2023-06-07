@@ -11,21 +11,17 @@ public class ExecutorsDemo {
         ExecutorService pool2 = Executors.newFixedThreadPool(5);
         ExecutorService pool3 = Executors.newCachedThreadPool();
 
-
         try {
                 for (int i = 0; i < 100; i++) {
                     pool2.execute(() -> {
                         System.out.println(Thread.currentThread().getName() + "ok");
                     });
                 }
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
             pool2.shutdown();
         }
-
-
     }
 
 
